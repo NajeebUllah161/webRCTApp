@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, Button } from 'react-native';
 import {
-    RTCPeerConnection,
-    RTCIceCandidate,
-    RTCSessionDescription,
     RTCView,
-    MediaStream,
-    MediaStreamTrack,
     mediaDevices,
-    registerGlobals
 } from 'react-native-webrtc';
+import CanvasComponent from './CanvasComponent';
 
 export default function StreamingScreen() {
 
     const [localStream, setLocalStream] = useState({ toURL: () => null });
-
     const goLive = () => {
         // alert('alert message');
         let isFront = true;
@@ -57,8 +51,11 @@ export default function StreamingScreen() {
             <View style={styles.videoContainer}>
                 <View style={[styles.videos, styles.localVideos]}>
                     <Text>Your Video</Text>
-                    <RTCView streamURL={localStream.toURL()} style={styles.localVideo} />
+                    <RTCView objectFit={'cover'} streamURL={localStream.toURL()} style={styles.localVideo} />
                 </View>
+            </View>
+            <View>
+                <CanvasComponent video={''} />
             </View>
         </View>
     )
@@ -76,14 +73,13 @@ const styles = StyleSheet.create({
     },
     videoContainer: {
         flex: 1,
-        minHeight: 450,
+        minHeight: 290,
     },
     videos: {
         width: '100%',
         flex: 1,
         position: 'relative',
         overflow: 'hidden',
-
         borderRadius: 6,
     },
     localVideos: {
@@ -95,4 +91,4 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
     },
-}); 
+});

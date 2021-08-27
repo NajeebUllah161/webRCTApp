@@ -10,9 +10,15 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "fbjs": "^3.0.0",
     "react": "17.0.1",
     "react-native": "0.64.2",
-    "react-native-webrtc": "^1.92.0"
+    "react-native-canvas": "^0.1.37",
+    "react-native-color-matrix-image-filters": "^5.2.10",
+    "react-native-image-picker": "^4.0.6",
+    "react-native-video": "^5.1.1",
+    "react-native-webrtc": "^1.92.0",
+    "react-native-webview": "^11.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
